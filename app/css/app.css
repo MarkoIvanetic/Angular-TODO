@@ -1,0 +1,49 @@
+body{
+  font-size: 12px;
+}
+h2{
+  font-size: 1.5em;
+  text-decoration: underline;
+}
+#search{
+  -webkit-appearance: textfield
+}
+.item-list{
+  list-style: none;
+  padding: 0;
+}
+.item-list h3{
+  font-size: 1.2em;
+  font-weight:bold;
+  margin: 0;
+}
+.item-info span{
+  font-size: 1em;
+}
+.item-info h4{
+  font-size: 1em;
+}
+.item-info{
+  position: relative;
+  border: 1px solid #BCBAAFy;
+  background-color: #f7f7f9;
+  margin: 10px 0px;
+  padding: 10px;
+  border-left: 5px solid #f0ad4e;
+}
+.item-delete{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 5px;
+}
+
+.finished .item-info{
+  border-left: 5px solid #ec971f;
+}
+.pending .item-info{
+ border-left: 5px solid #5cb85c;
+}
+.upper-menu h1, .upper-menu div{
+  padding-left: 0;
+}

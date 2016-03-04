@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+	<meta charset="UTF-8">
+	<!-- Dependencies -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/app.css">
+	<!-- JS -->
+	<!-- Controllers -->
+	<script src="controllers/MainController.js"></script>	
+	<!-- Services -->
+	<script src="services/dataService.js"></script>
+	
+
+	<title>Todo List</title>
+</head>
+<body>
+	<div class="container" ng-controller="MainController">
+		<div class="row">
+			<div class="col-xs-12 upper-menu">
+				<h1 class="col-xs-4">TODO List</h1>
+				<div class="col-xs-12">
+					<input type="search" id="search" placeholder="Search..." ng-model="query" class="col-xs-4"/>
+				</div>
+			</div>
+			<div class="pending col-xs-12 col-sm-4">
+				<h2>Pending Items</h2>
+				<ul class="item-list" ng-class="item.done ? 'finished' : 'pending'">
+					<li ng-repeat="item in items.pending | filter:query track by $index">
+						<div class="item-info col-xs-12">
+							<a href="#" class="item-delete" ng-click="deleteClick('pending', $index)">X</a>
+							<h3>{{item.name}}</h3>
+							<span>Duration: {{item.duration}}h</span><span> | </span>
+							<span>Creator: {{item.creatorName}}</span>
+							<h4>{{item.description}}</h4>
+							<div class="item-controls">
+								<button type="button" class="btn btn-success" ng-click="doItemClick(item, $index)">Complete</button>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="finished col-xs-12 col-sm-4">
+				<ul class="item-list">
+					<h2>Finished Items</h2>
+					<li ng-repeat="item in items.finished | filter:query track by $index"}>
+						<div class="item-info col-xs-12" ng-class="item.done ? 'finished' : 'pending'">
+							<a href="#" class="item-delete" ng-click="deleteClick('finished', $index)">X</a>
+							<h3>{{item.name}}</h3>
+							<span>Duration: {{item.duration}}h</span><span> | </span>
+							<span>Creator: {{item.creatorName}}</span>
+							<h4>{{item.description}}</h4>
+							<div class="item-controls">
+								<button type="button" class="btn btn-warning" ng-click="undoItemClick(item, $index)">Undo</button>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="pending col-xs-12 col-sm-4">
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
