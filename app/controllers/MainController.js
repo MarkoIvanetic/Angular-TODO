@@ -2,6 +2,7 @@ var todoApp = angular.module('todoApp', []);
 
 todoApp.controller('MainController', ['$scope','dataService', function MainController($scope,dataService) {
 	$scope.items = dataService.items;
+    $scope.onlyNumbers = /^\d+$/;
 
 	$scope.pendingFilter = function (items) {
         //console.log(tag, $scope.catSort);
@@ -31,6 +32,24 @@ todoApp.controller('MainController', ['$scope','dataService', function MainContr
     	} else {
     		console.error("Delete click is not working properly")
     	}
-    };   
+    };
+    $scope.update = function () {
+        var newItem = {
+                name: $scope.newItem.name,
+                creatorName: $scope.newItem.creator,
+                duration: $scope.newItem.duration,
+                description: $scope.newItem.description,
+                done: false
+            }
+        $scope.items.pending.push(newItem);
+            $scope.newItem.name = '';
+            $scope.newItem.creator = '';
+            $scope.newItem.duration = '';
+            $scope.newItem.description = '';
+    };
+    $scope.check = function (validation) {
+        // console.log('Desc: '+ $scope.newItem.duration);
+        console.log(valdiation);
+    }
 
 }]);

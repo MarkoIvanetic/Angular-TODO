@@ -47,3 +47,24 @@ h2{
 .upper-menu h1, .upper-menu div{
   padding-left: 0;
 }
+/*FORM*/
+#newItemForm label, #newItemForm input:not([type="submit"]), #newItemForm textarea{
+  display: block;
+  padding: 2px;
+}
+#newItemForm>div{
+  margin-bottom: 20px;
+}
+.validationImage{
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  margin-left: 5px;
+  background-size: cover;
+}
+.invalid{
+  background-image: url("../images/icons/invalid.png");
+}
+.valid{
+  background-image: url("../images/icons/valid.png");
+}
