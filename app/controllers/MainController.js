@@ -49,7 +49,7 @@ todoApp.controller('MainController', ['$scope','dataService', function MainContr
     };
     $scope.check = function (validation) {
         // console.log('Desc: '+ $scope.newItem.duration);
-        console.log(valdiation);
+        console.log(validation);
     }
 
 }]);

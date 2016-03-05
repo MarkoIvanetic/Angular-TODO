@@ -60,11 +60,11 @@ h2{
   height: 25px;
   padding: 0;
   margin-left: 5px;
-  background-size: cover;
+  display: none;
 }
-.invalid{
-  background-image: url("../images/icons/invalid.png");
+.ng-not-empty.ng-valid ~ .valid{
+  display: inline-block;
 }
-.valid{
-  background-image: url("../images/icons/valid.png");
+.ng-not-empty.ng-invalid ~ .invalid {
+ display: inline-block;
 }

@@ -66,23 +66,29 @@
 					<div class="col-xs-12">
 						<label for="itemName">Item Name</label>
 						<input type="text" required id="itemName" class="col-xs-8" ng-model="newItem.name">
+						<img class="validationImage valid" src="images/icons/valid.png">
+						<img class="validationImage invalid" src="images/icons/invalid.png">
 					</div>
 					<div class="col-xs-12">
 						<label for="itemDuration">Item Duration</label>
 						<input type="text" ng-pattern="onlyNumbers" id="itemDuration" class="col-xs-8" ng-model="newItem.duration">
-						<img class="validationImage" ng-class="newItem.duration.$valid ? 'valid' : 'invalid'" alt="">
+						<img class="validationImage valid" src="images/icons/valid.png">
+						<img class="validationImage invalid" src="images/icons/invalid.png">
 					</div>
 					<div class="col-xs-12">
 						<label for="itemCreator">Item Creator</label>
 						<input type="text" id="itemCreator" class="col-xs-8" ng-model="newItem.creator">
+						<img class="validationImage valid" src="images/icons/valid.png">
+						<img class="validationImage invalid" src="images/icons/invalid.png">
 					</div>
 					<div class="col-xs-12">
 						<label for="itemDescription">Item Description</label>
 						<textarea name="" id="itemDescription" rows="10" class="col-xs-8" ng-model="newItem.description"></textarea>
+						<img class="validationImage valid" src="images/icons/valid.png">
+						<img class="validationImage invalid" src="images/icons/invalid.png">
 					</div>
 					<div class="col-xs-12">
-						<input type="submit" ng-show="newItem.duration.$valid" class="btn btn-warning" ng-click="update()" value="Save" />
-						<input type="button" class="btn btn-success" ng-click="check(newItem.duration.$valid)" value="Check" />
+						<input type="submit" class="btn btn-warning" ng-click="update()" value="Save" />
 					</div>
 				</form>
 			</div>
