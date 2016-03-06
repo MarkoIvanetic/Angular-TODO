@@ -39,7 +39,9 @@ todoApp.controller('MainController', ['$scope','dataService', function MainContr
     	}
     };
     $scope.update = function () {
-        var newItem = {
+
+        if ($scope.newItemForm.$valid) {
+                var newItem = {
                 name: $scope.newItem.name,
                 creatorName: $scope.newItem.creator,
                 duration: $scope.newItem.duration,
@@ -47,10 +49,14 @@ todoApp.controller('MainController', ['$scope','dataService', function MainContr
                 done: false
             }
         $scope.items.pending.push(newItem);
-        
+
             $scope.newItem.name = '';
             $scope.newItem.creator = '';
             $scope.newItem.duration = '';
             $scope.newItem.description = '';
+        } else {
+            $('.ng-invalid').css('background-color','red');
+        }
+
     };
 }]);
