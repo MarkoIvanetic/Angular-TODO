@@ -2,7 +2,12 @@ var todoApp = angular.module('todoApp', []);
 
 todoApp.controller('MainController', ['$scope','dataService', function MainController($scope,dataService) {
 	$scope.items = dataService.items;
+
+    // REGEX
+    $scope.minSixChars = /^.{6,}$/;
     $scope.onlyNumbers = /^\d+$/;
+
+    // $scope.formValid = $scope.newItem.name.$valid;
 
 	$scope.pendingFilter = function (items) {
         //console.log(tag, $scope.catSort);
@@ -42,14 +47,10 @@ todoApp.controller('MainController', ['$scope','dataService', function MainContr
                 done: false
             }
         $scope.items.pending.push(newItem);
+        
             $scope.newItem.name = '';
             $scope.newItem.creator = '';
             $scope.newItem.duration = '';
             $scope.newItem.description = '';
     };
-    $scope.check = function (validation) {
-        // console.log('Desc: '+ $scope.newItem.duration);
-        console.log(validation);
-    }
-
 }]);

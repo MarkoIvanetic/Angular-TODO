@@ -62,10 +62,10 @@
 			</div>
 			<div class="col-xs-12 col-sm-4">
 				<h2>Add new item</h2>
-				<form action="" id="newItemForm">
+				<form action="" id="newItemForm" name="newItemForm">
 					<div class="col-xs-12">
 						<label for="itemName">Item Name</label>
-						<input type="text" required id="itemName" class="col-xs-8" ng-model="newItem.name">
+						<input type="text" ng-pattern="minSixChars" id="itemName" class="col-xs-8" ng-model="newItem.name">
 						<img class="validationImage valid" src="images/icons/valid.png">
 						<img class="validationImage invalid" src="images/icons/invalid.png">
 					</div>
@@ -88,7 +88,7 @@
 						<img class="validationImage invalid" src="images/icons/invalid.png">
 					</div>
 					<div class="col-xs-12">
-						<input type="submit" class="btn btn-warning" ng-click="update()" value="Save" />
+						<input type="submit" ng-disabled="newItemForm.$invalid" class="btn btn-warning" ng-click="update()" value="Save" />
 					</div>
 				</form>
 			</div>
